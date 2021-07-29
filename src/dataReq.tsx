@@ -24,7 +24,7 @@ export async function getReq(idPass: string) {
     deleted: boolean,
   }
 
-  const URLfget = "https://cors.dialekt.it/https://pwpush.com/p/" + idPass + ".json"
+  const URLfget = "localhost/post/" + idPass + ".json"
 
 
   //Calls "http" function with data that is needed for correct response
@@ -62,7 +62,7 @@ export async function postReq(payload: string, expire_after_days: number , expir
   //Calls "http" function with data that is needed for correct response
   const response = await http<POSTdataFormat>(
     new Request(
-      "https://cors.dialekt.it/https://pwpush.com/p.json",
+      "localhost:80/post",
       {
         method: "post",
         headers: { 'Content-Type': 'application/json'},
@@ -88,7 +88,7 @@ export async function postReq(payload: string, expire_after_days: number , expir
   }
   //Creates an URL to send back
   return(
-    'https://losenord.dialect.it/p/' + response.url_token
+    'localhost/p/' + response.url_token
   )
 }
 
@@ -109,15 +109,13 @@ export async function genPass() {
     password = html
   });
 
-const outputPass: string = await password
+  const outputPass: string = await password
 
-function capitalizeFirstLetter(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
-
-
-return(
-  capitalizeFirstLetter(outputPass)
-)
+  return(
+    capitalizeFirstLetter(outputPass)
+  )
 }
