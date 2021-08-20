@@ -1,0 +1,11 @@
+services:
+  frontend-app:
+    build: .
+    ports:
+      - "80:80"
+  
+  backendpw:
+    image: "pglombardo/pwpush-ephemeral"
+    ports:
+      - "5100:5100"
+      
