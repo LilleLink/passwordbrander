@@ -1,31 +1,22 @@
 import React, { EventHandler, useState } from "react";
 import { postReq } from "./dataReq";
-import { getReq } from "./dataReq";
 import { genPass } from "./dataReq";
 import generateImgURL from '../assets/generate.png';
-import { Redirect } from "react-router-dom";
-
-//TEMP
 
 var URLgen: any | null = null;
-// Formulärobjekt
-// Tror att denna skall flyttas till en egen klass, då man kan göra såna och de verkar coola.
-// Då får man lite objekt-orienterad funktionalitet som vi saknar här.
-// Så har de gjort i denna tutorialen https://reactjs.org/docs/forms.html
-// Tänker att man kke flyttar varje sån klass till sin egen fil, som importeras här, och sammanställs i "App"
-// funktionen ovan.
+
 export default function Form(props: any) {
     const [password, setPassword] = useState("");
     const [passwordIsValid, setPasswordIsValid] = useState(true);
-    const [expiryDate, setExpiryDate] = useState(30);
-    const [maxViews, setMaxViews] = useState(50);
+    const [expiryDate, setExpiryDate] = useState(15);
+    const [maxViews, setMaxViews] = useState(10);
     const [passwordURL, setPasswordURL] = useState("");
     const [passwordSent, setPasswordSent] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (passwordIsValid) {
-          URLgen = await postReq(password, expiryDate, maxViews);
+          URLgen = await postReq(password, expiryDate, maxViews+1);
           setPasswordURL(URLgen);
           setPasswordSent(true);
         }
@@ -37,7 +28,7 @@ export default function Form(props: any) {
         Views() +
         ".%0A%0A" +
         URLgen +
-        "%0A%0AMed%20v%C3%A4nliga%20h%C3%A4lsningar%2C%0ADialect%20Support";
+        "%0A%0AMed%20v%C3%A4nliga%20h%C3%A4lsningar%2C%0AFöretagsnamn";
         window.location.href = mailto;
     };
 
@@ -144,11 +135,11 @@ export default function Form(props: any) {
         
         <form onSubmit={handleSubmit}>    
             <h3>Inaktivera länk och ta bort lösenord efter: </h3><br/>
-            <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={expiryDateChangeHandler}/> 
+            <input className="rangeSlider" min="1" max="30" type="range" value={expiryDate} onChange={expiryDateChangeHandler}/> 
             <p>{Days()}</p>
             <br/>
 
-            <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={maxViewsChangeHandler}/>
+            <input className="rangeSlider" min="1" max="20" type="range" value={maxViews} onChange={maxViewsChangeHandler}/>
             <p>{Views()}</p>
             <br/>
             <p>(vad som än kommer först)</p>

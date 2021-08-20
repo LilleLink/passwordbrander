@@ -1,9 +1,16 @@
 import React, { useEffect, useState, } from 'react';
 
+export interface GETdataFormat {
+  payload: string,
+  expired: boolean,
+  days_remaining: number,
+  views_remaining: number,
+  first_view: boolean,
+  deleted: boolean,
+}
+
 //Runs the POST request towards the backendpw site. Variables are set through postReq function
-async function http<T>(
-  request: RequestInfo
-): Promise<T> {
+async function http<T>(request: RequestInfo): Promise<T> {
   const response = await fetch(request);
   //if(!response.ok){
   //  throw Error(response.statusText)
@@ -15,17 +22,14 @@ async function http<T>(
 
 export async function getReq(idPass: string) {
 
-  interface GETdataFormat {
-    payload: string,
-    expired: boolean,
-    days_remaining: number,
-    views_remaining: number,
-    first_view: boolean,
-    deleted: boolean,
-  }
+  /*const getURL = "http://localhost:80/get/"+idPass;
 
-  const URLfget = "localhost/post/" + idPass + ".json"
+  const response : any = await fetch(getURL, {
+    method: "GET",
+    headers: {'Accept': 'application/json'}
+  })*/
 
+  const URLfget = "http://localhost:80/get/" + idPass;
 
   //Calls "http" function with data that is needed for correct response
   const response = await http<GETdataFormat>(
@@ -38,19 +42,31 @@ export async function getReq(idPass: string) {
     )
   );
 
-  if(response.deleted === true || response.expired === true || response.payload == null /*|| response.views_remaining == 0*/){
-    return(
-      "Lösenordet har gått ut eller blivit borttaget"
-    )
+  if(response.deleted === true || response.expired === true || response.payload == null){
+    response.payload = "Lösenordet har gått ut eller blivit borttaget";
   }
   return(
-    response.payload
+    response
   )
 }
 
 
 //Function called from App.tsx. Gets called when handleSubmit runs
 export async function postReq(payload: string, expire_after_days: number , expire_after_views: number,) {
+
+  /*const postURL = "http://localhost:80/post";
+
+  const response : any = await fetch(postURL, {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      password: {
+        "payload": payload,
+        "expire_after_days": expire_after_days,
+        "expire_after_views": expire_after_views
+      }
+    })
+  })*/
 
   //Specifies what data is needed from the response
   interface POSTdataFormat {
@@ -62,7 +78,7 @@ export async function postReq(payload: string, expire_after_days: number , expir
   //Calls "http" function with data that is needed for correct response
   const response = await http<POSTdataFormat>(
     new Request(
-      "localhost:80/post",
+      "http://localhost:80/post/",
       {
         method: "post",
         headers: { 'Content-Type': 'application/json'},
@@ -88,11 +104,9 @@ export async function postReq(payload: string, expire_after_days: number , expir
   }
   //Creates an URL to send back
   return(
-    'localhost/p/' + response.url_token
+    'http://localhost:80/p/' + response.url_token
   )
 }
-
-
 
 
 export async function genPass() {
