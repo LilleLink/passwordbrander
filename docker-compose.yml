@@ -3,6 +3,8 @@ services:
     build: .
     ports:
       - "80:80"
+    links:
+      - backendpw
   
   backendpw:
     image: "pglombardo/pwpush-ephemeral"
