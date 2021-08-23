@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 //Proxy methods to bypass CORS
 app.use('/post/', function (req, res) {
-    axios.post('http://localhost:5100/p.json', req.body)
+    axios.post('http://backendpw:5100/p.json', req.body)
     .then( response => {
         res.send(response.data);
     }).catch (error => {
@@ -19,7 +19,7 @@ app.use('/post/', function (req, res) {
 });
 
 app.use('/get/:id/' , function (req, res) {
-    axios.get('http://localhost:5100/p/'+req.params['id']+'.json')
+    axios.get('http://backendpw:5100/p/'+req.params['id']+'.json')
     .then( response => {
         res.send(response.data);
     }).catch(error => {
