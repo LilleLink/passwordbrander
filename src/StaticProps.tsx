@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import imgURL from '../assets/symbol.png';
+import footerLogo from '../assets/hhaLogo.png';
 
 export function StaticHeader(props : any) {
     return (
         <header>
-            <a href="#">
-                <img src={props.imagePath}/>
-            </a>
+            <div className="headerContainer">
+                <a href="https://www.holistichealthacademy.se/">
+                    <img id="headerLogo" src={props.imagePath}/>
+                </a>
+
+                <p>Holistic Health Academy - Lösenord</p>
+            </div> 
         </header>
     )
 }
@@ -17,7 +22,7 @@ export function StaticFooter(props : any) {
         <div className="footerWrapper">
             <footer>
                 <div className="row footerlogo">
-                    <img src={imgURL}/>
+                    <img id="footerLogo" src={footerLogo}/>
                 </div>
                 <div className="row">
                     <p>Epost:</p>

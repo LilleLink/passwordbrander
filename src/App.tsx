@@ -4,7 +4,7 @@ import Form from './Form';
 import './App.css'
 import {StaticHeader, StaticFooter} from './StaticProps';
 import PasswordRetriever from './PasswordRetriever';
-import imgURL from '../assets/mainlogo.png'; // Måste göra såhär för att det skall fungera i build sen
+import imgURL from '../assets/hhaLogo.png'; // Måste göra såhär för att det skall fungera i build sen
 
 // Huvud "Appen" där allt laddas in. T.ex. formulärobjektet med "<Form/>"
 function App() {
