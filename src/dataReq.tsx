@@ -18,7 +18,7 @@ async function http<T>(request: RequestInfo): Promise<T> {
 
 export async function getReq(idPass: string) {
 
-  const URLfget = `http://${import.meta.env.VITE_FRONTEND_URL}/get/` + idPass;
+  const URLfget = `https://${import.meta.env.VITE_FRONTEND_URL}/get/` + idPass;
 
   //Calls "http" function with data that is needed for correct response
   const response = await http<GETdataFormat>(
@@ -50,7 +50,7 @@ export async function postReq(payload: string, expire_after_days: number , expir
     status: 500
   }
 
-  const URLfpost = `http://${import.meta.env.VITE_FRONTEND_URL}/post/`;
+  const URLfpost = `https://${import.meta.env.VITE_FRONTEND_URL}/post/`;
 
   //Calls "http" function with data that is needed for correct response
   const response = await http<POSTdataFormat>(
@@ -81,7 +81,7 @@ export async function postReq(payload: string, expire_after_days: number , expir
   }
   //Creates an URL to send back
   return(
-    `http://${import.meta.env.VITE_FRONTEND_URL}/p/` + response.url_token
+    `https://${import.meta.env.VITE_FRONTEND_URL}/p/` + response.url_token
   )
 }
 
