@@ -28,7 +28,7 @@ export default function Form(props: any) {
         Views() +
         ".%0A%0A" +
         URLgen +
-        "%0A%0AMed%20v%C3%A4nliga%20h%C3%A4lsningar%2C%0AFöretagsnamn";
+        "%0A%0AMed%20v%C3%A4nliga%20h%C3%A4lsningar%2C%0AHolistic Health Academy";
         window.location.href = mailto;
     };
 
@@ -83,8 +83,13 @@ export default function Form(props: any) {
 
     function PasswordGenerator() {
 
+      async function generateButtonChangeHandler() {
+        setPassword(await genPass());
+        formRefreshed();
+      }
+
       return (
-        <button className="generateButton" onClick={async () => setPassword(await genPass())}><img src={generateImgURL}/></button>
+        <button className="generateButton" onClick={generateButtonChangeHandler}><img src={generateImgURL}/></button>
       )
     }
 

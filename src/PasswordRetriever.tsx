@@ -83,7 +83,7 @@ export default function PasswordRetriever(props : any) {
     if (expired == false) {
         return (
             <div className="Content">
-                <h2>Med hjälp av denna sida kan du få ditt lösenord</h2>
+                <h3>Med hjälp av denna sida kan du få ditt lösenord</h3>
                 {boxClicked ? null : <PasswordButton/>}
                 {boxClicked ? <PasswordText/> : null}
                 {boxClicked ? <CopyButton/> : null}
@@ -94,7 +94,7 @@ export default function PasswordRetriever(props : any) {
     } else {
         return (
             <div className="Content">
-                <h2>Lösenordet har gått ut</h2>
+                <h3>Lösenordet har gått ut</h3>
                 <p>Kontakta supporten om du behöver en ny länk.<br/>
                 Se kontaktuppgifter längst ned på sidan.</p>
 
