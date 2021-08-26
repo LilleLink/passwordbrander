@@ -89,7 +89,7 @@ export async function postReq(payload: string, expire_after_days: number , expir
 export async function genPass() {
 
   var password: string = "";
-  const response = await fetch('https://www.dinopass.com/password/simple',{
+  const response = await fetch('https://makemeapassword.ligos.net/api/v1/passphrase/plain?wc=4&ups=4&whenUp=StartOfWord&nums=3&whenNum=StartOrEndOfWord&minCh=16&sp=false',{
   headers: { 'Content-Type': 'text/plain;charset=UTF-8'},
   })
   .then(function (response) {
