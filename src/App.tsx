@@ -4,7 +4,6 @@ import Form from './Form';
 import './App.css'
 import {StaticHeader, StaticFooter} from './StaticProps';
 import PasswordRetriever from './PasswordRetriever';
-import imgURL from '../assets/hhaLogo.png'; // Måste göra såhär för att det skall fungera i build sen
 
 // Huvud "Appen" där allt laddas in. T.ex. formulärobjektet med "<Form/>"
 function App() {
@@ -25,7 +24,7 @@ function PostPassword() {
 
   return (
     <div className="App">
-      <StaticHeader imagePath={imgURL}/>
+      <StaticHeader/>
 
       <main>
         <Form/>
@@ -43,7 +42,7 @@ function GetPassword() {
   
   return (
     <div className="App">
-      <StaticHeader imagePath={imgURL}/>
+      <StaticHeader/>
 
       <main>
         <PasswordRetriever id={id}/>
@@ -59,7 +58,7 @@ function GetPassword() {
 function NotFound() {
   return (
     <div className="App">
-      <StaticHeader imagePath={imgURL}/>
+      <StaticHeader/>
 
       <main>
         <h1>Error: 404</h1>

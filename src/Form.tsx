@@ -28,7 +28,7 @@ export default function Form(props: any) {
         Views() +
         ".%0A%0A" +
         URLgen +
-        "%0A%0AMed%20v%C3%A4nliga%20h%C3%A4lsningar%2C%0AHolistic Health Academy";
+        `%0A%0AMed%20v%C3%A4nliga%20h%C3%A4lsningar%2C%0A${import.meta.env.VITE_COMPANTY_NAME}`;
         window.location.href = mailto;
     };
 

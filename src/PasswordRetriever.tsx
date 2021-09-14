@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { postReq } from './dataReq';
 import { getReq } from './dataReq';
 
 export default function PasswordRetriever(props : any) {

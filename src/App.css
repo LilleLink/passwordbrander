@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+:root {
+  --headerTextColor: rgb(63,63,63);
+  --headerBackgroundColor: white;
+
+  --footerTextColor: white;
+  --footerBackgroundColor: rgb(63,63,63);
+  --footerLinkTextColor: white;
+
+  --contentTextColor: rgb(63,63,63);
+  --contentBackgroundColor: white;
+
+  --buttonBackgroundColor: black;
+  --buttonHoverBackgroundColor: rgb(54, 54, 54);
+  --buttonTextColor: white;
+
+  --textfieldBottomBorderColor: black;
+  --textfieldFocusColor: #F0F0F0;
+  --textfieldTextColor: black;
+  --textFieldBackgroundColor: white;
+
+  --sliderTrackColor: black;
+  --sliderThumbColor: white;
+  --sliderThumbBorderColor: black;
+
+  --horizontalLineColor: black;
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -34,8 +61,8 @@ main {
 }
 
 header {
-  color: rgb(63,63,63);
-  background-color: white;
+  color: var(--headerTextColor);
+  background-color: var(--headerBackgroundColor);
   text-align: left;
   box-shadow: 0 0 10px 1px gray;
   z-index: 1;
@@ -55,20 +82,19 @@ header {
 }
 
 #headerLogo {
-  width: 70px;
   height: 80px;
 }
 
 footer {
   width: 100%;
   bottom: 0;
-  background-color: #272D34;
-  color: white;
+  background-color: var(--footerBackgroundColor);
+  color: var(--footerTextColor);
   min-height: 80px;
 }
 
 footer a {
-  color: white;
+  color: var(--footerLinkTextColor);
 }
 
 #rightarrow {
@@ -114,8 +140,8 @@ footer a {
 }
 
 .Content {
-  color:rgb(63,63,63);
-  background-color: rgb(255, 255, 255);
+  color:var(--contentTextColor);
+  background-color: var(--contentBackgroundColor);
   margin: 0 auto;
   width: 75%;
   padding: 20px;
@@ -131,26 +157,26 @@ footer a {
   border-style: none;
   padding: 10px;
   font-size: 24px;
-  background-color: #C09A63;
-  color: white;
+  background-color: var(--buttonBackgroundColor);
+  color: var(--buttonTextColor);
   margin: 10px;
 }
 
 .button:hover {
-  background-color: #e7b772;
+  background-color: var(--buttonHoverBackgroundColor);
 }
 
 .generateButton {
   justify-content: center;
   border-radius: 5px;
   border-style: none;
-  background-color: #C09A63;
+  background-color: var(--buttonBackgroundColor);
   align-items: center;
   margin: 5px;
 }
 
 .generateButton:hover {
-  background-color: #e7b772;
+  background-color: var(--buttonHoverBackgroundColor);
 }
 
 .verticalAlignTop {
@@ -162,15 +188,16 @@ footer a {
   border: none;
   font-size: 22px;
   width: 60%;
-  border-bottom: 2px solid #272D34;
-  background-color:white;
+  border-bottom: 2px solid var(--textfieldBottomBorderColor);
+  background-color:var(--textFieldBackgroundColor);
+  color: var(--textfieldTextColor);
   /*box-shadow: 0 0.5px 4px 1px black;*/
   text-align: center;
   padding: 5px;
 }
 
 .textField:focus {
-  background-color: #F0F0F0;
+  background-color: var(--textfieldFocusColor);
 }
 
 .smaller {
@@ -189,7 +216,7 @@ input[type=range]:focus {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-  background: #272D34;
+  background: var(--sliderTrackColor);
   border: 0;
   border-radius: 10.3px;
   width: 100%;
@@ -201,19 +228,19 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: -3.8px;
   width: 16px;
   height: 16px;
-  background: #C09A63;
-  border: 1px solid #000000;
+  background: var(--sliderThumbColor);
+  border: 1px solid var(--sliderThumbBorderColor);
   border-radius: 30px;
   cursor: pointer;
   -webkit-appearance: none;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #272D34;
+  background: var(--sliderTrackColor);
 }
 
 input[type=range]::-moz-range-track {
-  background: #272D34;
+  background: var(--sliderTrackColor);
   border: 0;
   border-radius: 10.3px;
   width: 100%;
@@ -224,8 +251,8 @@ input[type=range]::-moz-range-track {
 input[type=range]::-moz-range-thumb {
   width: 16px;
   height: 16px;
-  background: #C09A63;
-  border: 1px solid #000000;
+  background: var(--sliderThumbColor);
+  border: 1px solid var(--sliderThumbBorderColor);
   border-radius: 30px;
   cursor: pointer;
 }
@@ -241,13 +268,13 @@ input[type=range]::-ms-track {
 }
 
 input[type=range]::-ms-fill-lower {
-  background: #C09A63;
+  background: var(--sliderThumbColor);
   border: 0;
   border-radius: 20.6px;
 }
 
 input[type=range]::-ms-fill-upper {
-  background: #C09A63;
+  background: var(--sliderThumbColor);
   border: 0;
   border-radius: 20.6px;
 }
@@ -255,8 +282,8 @@ input[type=range]::-ms-fill-upper {
 input[type=range]::-ms-thumb {
   width: 16px;
   height: 16px;
-  background: #C09A63;
-  border: 1px solid #000000;
+  background: var(--sliderThumbColor);
+  border: 1px solid var(--sliderThumbBorderColor);
   border-radius: 30px;
   cursor: pointer;
   margin-top: 0px;
@@ -264,7 +291,7 @@ input[type=range]::-ms-thumb {
 }
 
 input[type=range]:focus::-ms-fill-lower {
-  background: #C09A63;
+  background: var(--sliderThumbColor);
 }
 
 
@@ -282,11 +309,11 @@ how to remove the virtical space around the range input in IE*/
   width: 100%;
   border-width: 1px;
   border-style: solid;
-  border-color: #272D34;
+  border-color: var(--horizontalLineColor);
 }
 
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 860px){
   .Content {
     width: 100%;
   }
